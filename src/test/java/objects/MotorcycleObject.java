@@ -11,19 +11,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import page.UseDataMotorcyclePage;
+
 
 public class MotorcycleObject {
 	
-	private WebDriver driver;
-	private String url = "http://sampleapp.tricentis.com/101/index.php";
-	private String makeValue = "Audi";
-	private String modelValue = "Scooter";
-	private String cylinderCapacity = "1";
-	private String enginePerformance = "2000";
-	private String dateOfManufacture = "09/24/1996";
-	private String numberOfSeats = "1";
-	private String listPrice = "500";
-	private String annualMileage = "100";
+	private WebDriver driver;	
+	UseDataMotorcyclePage data = new UseDataMotorcyclePage();
+	
 
 	public void initialSetupChrome() {
 		System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver_win32/chromedriver.exe");
@@ -33,7 +28,7 @@ public class MotorcycleObject {
 	}
 	
 	public void getTricentis() {
-		driver.get(this.url);
+		driver.get(data.getUrl());
 	}
 	
 	public void getMenuMotorcycle() {
@@ -43,43 +38,43 @@ public class MotorcycleObject {
 	public void setMake() {
 		WebElement make = driver.findElement(By.id("make"));
 		Select selectMake = new Select(make);
-		selectMake.selectByValue(this.makeValue);
+		selectMake.selectByValue(data.getMakeValue());
 	}
 	
 	public void setModel() {
 		WebElement model = driver.findElement(By.id("model"));
 		Select selectMake = new Select(model);
-		selectMake.selectByValue(this.modelValue);
+		selectMake.selectByValue(data.getModelValue());
 	}
 	
 	public void setCylinderCapacity() {
 		WebElement cylinderCap = driver.findElement(By.id("cylindercapacity"));
-		cylinderCap.sendKeys(this.cylinderCapacity);
+		cylinderCap.sendKeys(data.getCylinderCapacity());
 	}
 	
 	public void setEnginePerformance() {
 		WebElement engPerformance = driver.findElement(By.id("engineperformance"));
-		engPerformance.sendKeys(this.enginePerformance);
+		engPerformance.sendKeys(data.getEnginePerformance());
 	}
 	
 	public void setDateOfManufacture() {
 		WebElement dateofmanufacture = driver.findElement(By.id("dateofmanufacture"));
-		dateofmanufacture.sendKeys(this.dateOfManufacture);
+		dateofmanufacture.sendKeys(data.getDateOfManufacture());
 	}
 	
 	public void setNumberOfSeats() {
 		WebElement numberOfSeats = driver.findElement(By.id("numberofseatsmotorcycle"));
 		Select selectMake = new Select(numberOfSeats);
-		selectMake.selectByValue(this.numberOfSeats);
+		selectMake.selectByValue(data.getNumberOfSeats());
 	}
 	public void setListPrice() {
 		WebElement listprice = driver.findElement(By.id("listprice"));
-		listprice.sendKeys(this.listPrice);
+		listprice.sendKeys(data.getListPrice());
 	}
 	
 	public void setAnnualMileage() {
 		WebElement annualMileage = driver.findElement(By.id("annualmileage"));
-		annualMileage.sendKeys(this.annualMileage);
+		annualMileage.sendKeys(data.getAnnualMileage());
 	}
 	
 	public void clickBtnNext() {
